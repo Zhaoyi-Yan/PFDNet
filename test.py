@@ -40,7 +40,7 @@ criterion = torch.nn.MSELoss(reduction='sum').to(setting.device)
 estimator = Estimator(setting, eval_loader, criterion=criterion)
 
 # False means do not choose a random sample to show
-validate_MAE, validate_RMSE, validate_loss, time_cost = estimator.evaluate(net, False) 
+validate_MAE, validate_RMSE, validate_loss, time_cost = estimator.evaluate(net) 
 sys.stdout.write('loss = {}, eval_mae = {}, eval_rmse = {}, time cost eval = {}s\n'
                 .format(validate_loss, validate_MAE, validate_RMSE, time_cost))
 sys.stdout.flush()
