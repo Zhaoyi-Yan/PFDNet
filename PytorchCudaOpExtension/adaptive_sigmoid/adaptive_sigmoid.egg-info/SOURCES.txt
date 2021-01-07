@@ -1,0 +1,7 @@
+adaptive_sigmoid.cpp
+adaptive_sigmoid_cuda.cu
+setup.py
+adaptive_sigmoid.egg-info/PKG-INFO
+adaptive_sigmoid.egg-info/SOURCES.txt
+adaptive_sigmoid.egg-info/dependency_links.txt
+adaptive_sigmoid.egg-info/top_level.txt
