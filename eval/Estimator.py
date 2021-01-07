@@ -18,10 +18,10 @@ class Estimator(object):
         self.criterion = criterion
         self.eval_loader = eval_loader
         
-    def evaluate(self, model, is_show=True):
+    def evaluate(self, model):
         net = model.eval()
         MAE_, MSE_, loss_ = [], [], []
-        rand_number, cur, time_cost = random.randint(0, self.setting.eval_num - 1), 0, 0
+        time_cost = 0
         for eval_img_path, eval_img, eval_gt, eval_pers in self.eval_loader:
             eval_img_path = eval_img_path[0]
             eval_img = eval_img.to(self.setting.device)
@@ -46,13 +46,6 @@ class Estimator(object):
                 loss_.append(loss.data.item())
                 MAE_.append(batch_ae)
                 MSE_.append(batch_se)
-                # show sample
-                if rand_number == cur and is_show:
-                    validate_pred_map = np.squeeze(prediction_map.permute(0, 2, 3, 1).data.cpu().numpy())
-                    validate_gt_map = np.squeeze(eval_gt.permute(0, 2, 3, 1).data.cpu().numpy())
-                    pred_counts = np.sum(validate_pred_map)
-                    self.show_sample(img_index, gt_counts, pred_counts, validate_gt_map, validate_pred_map)
-            cur += 1
             torch.cuda.synchronize()
             end = time.time()
             time_cost += (end - start)
