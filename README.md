@@ -10,4 +10,5 @@ Then `h5py` can read the mat files correctly.
 bash download_models.sh
 ```
 # Test
+Pytorch version: 1.0 or 1.1
 Install the cuda extension, and `sh SHA_test.sh`.
