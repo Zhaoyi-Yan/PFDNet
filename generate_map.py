@@ -77,12 +77,12 @@ if __name__ == "__main__":
         num_img = 300 if is_train else 182
         image_dir_path = "ShanghaiTech/part_A_final/"+train_test+"_data/images"
         ground_truth_dir_path = "ShanghaiTech/part_A_final/"+train_test+"_data/ground_truth"
-        output_gt_dir = "./SH_part_A_yz/"+train_test
+        output_gt_dir = "./SH_part_A/"+train_test
     elif dataset == 'SHB':
         num_img = 400 if is_train else 316
         image_dir_path = "ShanghaiTech/part_B_final/"+train_test+"_data/images"
         ground_truth_dir_path = "ShanghaiTech/part_B_final/"+train_test+"_data/ground_truth"
-        output_gt_dir = "./SH_part_B_yz/" + train_test
+        output_gt_dir = "./SH_part_B/" + train_test
     elif dataset == 'QNRF':
         num_img = 1201 if is_train else 334
         image_dir_path = "UCF-QNRF_ECCV18/" + train_test
