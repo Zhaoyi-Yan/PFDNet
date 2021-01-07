@@ -26,4 +26,4 @@ class config(object):
             self.eval_pers_path = prefix_path + "/part_A_final/test_data/perspective_gt"
             
         else:
-            raise NameError("Only SHA are released")
+            raise NameError("Only SHA is released currently")
