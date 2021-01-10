@@ -9,7 +9,6 @@ from options.test_options import TestOptions
 from Dataset.DatasetConstructor import EvalDatasetConstructor
 from eval.Estimator import Estimator
 from net.CSRPersNet import CSRPersNet
-from net.CSRNet import CSRNet
 import net.networks as networks
 
 opt = TestOptions().parse()
@@ -17,7 +16,6 @@ opt.nThreads = 1   # test code only supports nThreads = 1
 opt.batch_size = 1  # test code only supports batchSize = 1
 opt.is_flip = 0  # no flip
 
-# Mainly get settings for specific datasets
 setting = config(opt)
 
 
@@ -39,7 +37,6 @@ net.module.load_state_dict(torch.load(opt.test_model_name, map_location=str(sett
 criterion = torch.nn.MSELoss(reduction='sum').to(setting.device)
 estimator = Estimator(setting, eval_loader, criterion=criterion)
 
-# False means do not choose a random sample to show
 validate_MAE, validate_RMSE, validate_loss, time_cost = estimator.evaluate(net) 
 sys.stdout.write('loss = {}, eval_mae = {}, eval_rmse = {}, time cost eval = {}s\n'
                 .format(validate_loss, validate_MAE, validate_RMSE, time_cost))
